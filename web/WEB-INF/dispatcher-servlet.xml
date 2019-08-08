@@ -30,4 +30,16 @@
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller" />
     </context:component-scan>
 
+    <!-- =================================================================== -->
+    <!-- Interceptor														 -->
+    <!-- =================================================================== -->
+    <interceptors>
+        <!-- JWT Auth Interceptor-->
+        <interceptor>
+            <mapping path="/**" />
+            <exclude-mapping path="/token/**"/>
+            <beans:bean class="net.glaso.jwt.framework.interceptor.TokenAuthInterceptor"></beans:bean>
+        </interceptor>
+    </interceptors>
+
 </beans:beans>
