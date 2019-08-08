@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org/DTD Mapper 3.0// EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace = "net.glaso.mapper.user">
+    <insert id="insertUserIdOne" parameterType="userVo">
+        insert user_info (
+            id,
+            password,
+            name,
+            auth_state
+        ) values (
+            #{id},
+            #{password},
+            #{name},
+            #{auth_state}
+        )
+    </insert>
+
+    <select id="selectUserInfoOneUsingId" parameterType="String" resultType="userVo">
+        select
+            id,
+            password,
+            name,
+            auth_state authState
+        from
+            user_info
+        where
+            id = #{val}
+    </select>
+</mapper>

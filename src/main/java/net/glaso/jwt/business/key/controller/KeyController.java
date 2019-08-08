@@ -1,15 +1,15 @@
-package net.glaso.jwt.user.controller;
+package net.glaso.jwt.business.key.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/user")
-public class UserController {
+@RequestMapping("/key")
+public class KeyController {
 
     @GetMapping("")
     public void user() {
-        System.out.println( "test" );
+
     }
 }
