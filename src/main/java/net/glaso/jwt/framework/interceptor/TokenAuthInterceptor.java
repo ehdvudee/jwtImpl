@@ -22,14 +22,6 @@ public class TokenAuthInterceptor extends HandlerInterceptorAdapter {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws IOException {
         String token = request.getHeader( TokenConstants.TOKEN_HEADER );
-        String kid = tokenService.getKidFromJWT( token );
-        DecodedJWT jwt;
-
-        try {
-            jwt = tokenService.verifyToken( token, kid );
-        } catch ( JWTVerificationException e ) {
-            throw new AuthenticationException( "token is invalid.");
-        }
 
         HandlerMethod handlerMethod = (HandlerMethod) handler;
         Auth auth = handlerMethod.getMethodAnnotation( Auth.class );
@@ -37,6 +29,24 @@ public class TokenAuthInterceptor extends HandlerInterceptorAdapter {
         int targetBitMask = 0;
         for ( Auth.AuthState enumAuth : auth.authState() ) {
             targetBitMask = targetBitMask + enumAuth.getAuthState();
+        }
+
+        if ( targetBitMask == Auth.AuthState.NON_USER.getAuthState() ) {
+            return true;
+        }
+
+        String kid;
+        try {
+            kid = tokenService.getKidFromJWT(token);
+        } catch( NullPointerException e ) {
+            throw new IllegalArgumentException( "token is invalid." );
+        }
+
+        DecodedJWT jwt;
+        try {
+            jwt = tokenService.verifyToken( token, kid );
+        } catch ( JWTVerificationException e ) {
+            throw new AuthenticationException( "token is invalid.");
         }
 
         int reqBitMask = jwt.getClaim( "scope" ).asInt();

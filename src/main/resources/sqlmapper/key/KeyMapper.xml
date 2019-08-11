@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace = "net.glaso.mapper.key">
-    <select id="selectKeyPairInfoLastOne" resultType="keyPairVo">
+    <select id="selectKeyPairInfoTrueLastOne" resultType="keyPairVo">
         select
             seq_id seqId,
             pri_key priKey,
@@ -20,4 +20,55 @@
         limit 1;
     </select>
 
+    <select id="selectKeyPairInfoUsingKid" resultType="keyPairVo" parameterType="String">
+        select
+            seq_id seqId,
+            pri_key priKey,
+            cert,
+            usage,
+            kid
+        from
+            key_pair_info
+        where
+            kid = #{value}
+    </select>
+
+    <insert id="insertKeyInfoOne" parameterType="keyPairVo">
+        insert into key_pair_info(
+            pri_key,
+            cert,
+            usage,
+            kid
+        ) values (
+            #{priKey},
+            #{cert},
+            #{usage},
+            #{kid}
+        )
+    </insert>
+
+    <select id="selectKeyPairInfoFalseLastOne" resultType="keyPairVo">
+        select
+            seq_id seqId,
+            pri_key priKey,
+            cert,
+            usage,
+            kid
+        from
+            key_pair_info
+        where
+            usage = false
+        order by
+            seq_id desc
+        limit 1;
+    </select>
+
+    <update id="updateKeyPairUsageOne" parameterType="int">
+        update
+            key_pair_info
+        set
+            usage = true
+        where
+            seq_id = #{value}
+    </update>
 </mapper>

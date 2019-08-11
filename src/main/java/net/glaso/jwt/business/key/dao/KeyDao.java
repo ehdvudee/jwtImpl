@@ -17,7 +17,24 @@ public class KeyDao {
         this.session = session;
     }
 
-    public KeyPairVo selectKeyPairInfoLastOne() {
-        return session.selectOne( namespace + ".selectKeyPairInfoLastOne" );
+    public KeyPairVo selectKeyPairInfoTrueLastOne() {
+        return session.selectOne( namespace + ".selectKeyPairInfoTrueLastOne" );
+    }
+
+    public KeyPairVo selectKeyPairInfoUsingKid( String kid ) {
+        return session.selectOne( namespace + ".selectKeyPairInfoUsingKid", kid );
+    }
+
+    public int insertKeyInfoOne( KeyPairVo vo ) {
+        return session.insert( namespace + ".insertKeyInfoOne", vo );
+    }
+
+    public KeyPairVo selectKeyPairInfoFalseLastOne() {
+        return session.selectOne( namespace + ".selectKeyPairInfoFalseLastOne" );
+    }
+
+    public int updateKeyPairUsageOne( int seqId ) {
+        return session.update( namespace + ".updateKeyPairUsageOne", seqId );
     }
 }
+

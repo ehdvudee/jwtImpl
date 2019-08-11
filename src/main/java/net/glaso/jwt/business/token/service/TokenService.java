@@ -13,8 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.xml.bind.DatatypeConverter;
-import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.cert.CertificateException;
 import java.security.spec.InvalidKeySpecException;
@@ -77,15 +75,15 @@ public class TokenService {
         Map<String, Object> jwtHeader = new HashMap<>();
         Date currentTime = new Date();
 
-        String jwu = new StringBuilder( request.getScheme() )
+        String jku = new StringBuilder( request.getScheme() )
                 .append( "://" )
                 .append( request.getServerName() )
                 .append( ":" )
                 .append( request.getServerPort() )
-                .append( "/" )
+                .append( "/key/" )
                 .append( keyService.getCurrentKid() ).toString();
 
-        jwtHeader.put( "jwu", jwu );
+        jwtHeader.put( "jku", jku );
 
         return JWT.create()
                 .withHeader( jwtHeader )
@@ -101,6 +99,8 @@ public class TokenService {
                 .sign( keyService.getAlgo() );
 
     }
+
+
 
 
 }
