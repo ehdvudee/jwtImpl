@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import javax.xml.bind.DatatypeConverter;
 
-public class key {
+public class KeyValTest {
 
     @Test
     public void test001() {
