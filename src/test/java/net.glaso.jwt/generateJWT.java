@@ -3,8 +3,7 @@ package net.glaso.jwt;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
-import com.auth0.jwt.impl.JWTParser;
-import com.auth0.jwt.interfaces.*;
+import com.auth0.jwt.interfaces.DecodedJWT;
 import org.junit.Test;
 
 import javax.xml.bind.DatatypeConverter;
@@ -38,7 +37,7 @@ public class generateJWT {
         jwtHeader.put( "jwu", "https://username.auth0.com/.well-known/jwks.json" );
 
         String token = JWT.create()
-                .withHeader( jwtHeader )
+//                .withHeader( jwtHeader )
                 .withKeyId( kid )
                 .withIssuedAt( currentTime )
                 .withSubject( "ehdvudee" )

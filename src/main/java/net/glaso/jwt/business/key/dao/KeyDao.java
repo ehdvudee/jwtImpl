@@ -8,12 +8,12 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class KeyDao {
 
-    private  SqlSession session;
+    private final SqlSession session;
 
     public static final String namespace = "net.glaso.mapper.key";
 
     @Autowired
-    public KeyDao(SqlSession session ) {
+    public KeyDao( SqlSession session ) {
         this.session = session;
     }
 

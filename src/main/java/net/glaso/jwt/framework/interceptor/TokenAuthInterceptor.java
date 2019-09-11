@@ -50,7 +50,7 @@ public class TokenAuthInterceptor extends HandlerInterceptorAdapter {
         }
 
         int reqBitMask = jwt.getClaim( "scope" ).asInt();
-        if ( (  reqBitMask & targetBitMask ) == reqBitMask )
+        if ( (  reqBitMask & targetBitMask ) != 0 )
             return true;
         else {
             throw new AuthenticationException( "token authorization is invalid.");

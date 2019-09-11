@@ -27,7 +27,7 @@ public class TokenService {
     private final KeyService keyService;
 
     @Autowired
-    public TokenService( UserService userService, KeyService keyService ) throws NoSuchAlgorithmException, InvalidKeySpecException, CertificateException {
+    public TokenService( UserService userService, KeyService keyService ) {
         this.userService= userService;
         this.keyService = keyService;
     }

@@ -9,11 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
-import java.io.IOException;
-import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
-import java.security.NoSuchProviderException;
-import java.security.SignatureException;
 import java.security.cert.CertificateException;
 import java.security.spec.InvalidKeySpecException;
 import java.util.HashMap;
@@ -31,7 +27,7 @@ public class TokenController {
     }
 
     @PostMapping("")
-    public ResponseEntity<?> generateToken(HttpServletRequest request ) throws InvalidKeyException, IllegalAccessException, NoSuchAlgorithmException, CertificateException, NoSuchProviderException, SignatureException, IOException, InvalidKeySpecException {
+    public ResponseEntity<?> generateToken(HttpServletRequest request ) throws NoSuchAlgorithmException, CertificateException, InvalidKeySpecException {
         ResponseEntity<?> entity;
         Map<String, Object> entities = new HashMap<>();
 
