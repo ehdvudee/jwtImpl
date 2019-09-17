@@ -2,7 +2,7 @@
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
-[![apache-2.0 License][license-shield]][license-url]
+[![Apache license 2.0][license-shield]][license-url]
 
 # jwtImpl
 
