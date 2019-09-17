@@ -58,5 +58,5 @@ JWT 안전하게 사용하자. 그리고 배보다 배꼽이 큰 JWT 데모 서�
 [issues-shield]: https://img.shields.io/github/issues/ehdvudee/jwtImpl.svg?style=flat-square
 [issues-url]: https://github.com/ehdvudee/jwtImpl/issues
 [license-shield]: https://img.shields.io/github/license/ehdvudee/jwtImpl.svg?style=flat-square
-
+[license-url]: https://github.com/ehdvudee/jwtImpl/blob/master/LICENSE
 
