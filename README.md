@@ -51,12 +51,12 @@ JWT 안전하게 사용하자. 그리고 배보다 배꼽이 큰 JWT 데모 서�
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/ehdvudee/jwtImpl.svg?style=flat-square
 [contributors-url]: https://github.com/ehdvudee/jwtImpl/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=flat-square
+[forks-shield]: https://img.shields.io/github/forks/ehdvudee/jwtImpl.svg?style=flat-square
 [forks-url]: https://github.com/ehdvudee/jwtImpl/network/members
-[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=flat-square
+[stars-shield]: https://img.shields.io/github/stars/ehdvudee/jwtImpl.svg?style=flat-square
 [stars-url]: https://github.com/ehdvudee/jwtImpl/stargazers
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=flat-square
+[issues-shield]: https://img.shields.io/github/issues/ehdvudee/jwtImpl.svg?style=flat-square
 [issues-url]: https://github.com/ehdvudee/jwtImpl/issues
-[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=flat-square
+[license-shield]: https://img.shields.io/github/license/ehdvudee/jwtImpl.svg?style=flat-square
 
 
